@@ -1,11 +1,20 @@
 [package]
 name = "gophersweeper"
-version = "0.1.0"
+author = "Hidekel D."
+description = "Blazing fast, terminal-based minesweeper; but instead of mines, you must avoid Golang devs."
+version = "1.0.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
+repository = "https://github.com/HidekelDietrich/GopherSweeper"
+keywords = ["game"]
+categories = ["games"]
 
 [dependencies]
 clap = { version = "4.0.29", features = ["derive"] }
 crossterm = "0.25.0"
 rand = "0.8.5"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
