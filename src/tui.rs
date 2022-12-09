@@ -64,7 +64,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                 },
 
                 KeyCode::Char(' ') | KeyCode::Enter => { 
-                    if !cell.is_exposed {
+                    if !cell.is_exposed && !cell.is_flagged {
                         match field.try_expose_cell(cursor_x, cursor_y) {
                             CellResult::Exposed => {
                                 draw_field(&field)?;
