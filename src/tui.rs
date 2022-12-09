@@ -63,7 +63,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                     }
                 },
 
-                KeyCode::Char(' ') | KeyCode::Enter => { 
+                KeyCode::Char(' ') => { 
                     if !cell.is_exposed && !cell.is_flagged {
                         match field.try_expose_cell(cursor_x, cursor_y) {
                             CellResult::Exposed => {
@@ -155,7 +155,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
 
                         (true, _) => ()
                     }
-                }
+                },
 
                 _ => ()
             }
@@ -183,12 +183,13 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
             match (cell.is_exposed, cell.is_flagged) {
                 (true, _) => {
                     match cell.surrounding_gophers {
-                        0 => stdout().queue(Print(format!("{EMPTY_CELL} ")))?,
+                        0 => stdout()
+                                .queue(SetForegroundColor(Grey))?
+                                .queue(Print(format!("{EMPTY_CELL} ")))?,
                         n => {
                             stdout()
                                 .queue(SetForegroundColor(Grey))?
                                 .queue(Print(format!("{n} ")))?
-                                .queue(ResetColor)?
                         }
                     }
                 },
@@ -197,14 +198,12 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                     stdout()
                         .queue(SetForegroundColor(DarkGreen))?
                         .queue(Print(format!("{CELL} ")))?
-                        .queue(ResetColor)?
                 },
 
                 (false, true) => {
                     stdout()
                         .queue(SetForegroundColor(DarkYellow))?
                         .queue(Print(format!("{FLAG} ")))?
-                        .queue(ResetColor)?
                 }
             };
         }

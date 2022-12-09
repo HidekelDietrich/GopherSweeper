@@ -13,7 +13,6 @@ Blazing fast, terminal-based minesweeper; but instead of mines, you must avoid G
 
 ### Expose cell
 - `SPACE`
-- `ENTER`
 
 ### Set flag
 - `F`
