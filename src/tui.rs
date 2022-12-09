@@ -104,6 +104,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
     
                             CellResult::Win => {
                                 stdout()
+                                    .queue(SetForegroundColor(Grey))?
                                     .queue(Print(format!(
                                         "{} ",
                                         field.cell_at(cursor_x, cursor_y).surrounding_gophers
