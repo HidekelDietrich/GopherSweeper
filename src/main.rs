@@ -37,7 +37,7 @@ enum FieldSize {
 fn main() -> Result<(), Box<dyn Error>> {
     let cli = Cli::parse();
 
-    let (field_width, field_height): (usize, usize) = match cli.field_size {
+    let (field_width, field_height) = match cli.field_size {
         FieldSize::LuaVM => (10, 9),
         FieldSize::RustBinary => (15, 14),
         FieldSize::ElectronApp => (20, 18)
