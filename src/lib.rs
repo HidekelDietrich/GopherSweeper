@@ -58,7 +58,7 @@ impl GopherSweeper {
         result
     }
 
-    pub fn cell_at(&self, x: usize, y: usize) -> Cell {
+    pub fn cell(&self, x: usize, y: usize) -> Cell {
         self.field[y][x]
     }
 

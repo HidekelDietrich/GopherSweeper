@@ -33,7 +33,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
     stdout().flush()?;
 
     'a: loop {
-        let cell = field.cell_at(cursor_x, cursor_y);
+        let cell = field.cell(cursor_x, cursor_y);
 
         if let Event::Key(key) = event::read()? {
             match key.code {
@@ -107,7 +107,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                                     .queue(SetForegroundColor(Grey))?
                                     .queue(Print(format!(
                                         "{} ",
-                                        field.cell_at(cursor_x, cursor_y).surrounding_gophers
+                                        field.cell(cursor_x, cursor_y).surrounding_gophers
                                     )))?
                                     .queue(cursor::Hide)?
                                     .queue(cursor::MoveTo(0, height as u16))?
