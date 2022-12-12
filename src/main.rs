@@ -8,7 +8,7 @@ use clap::{Parser, ValueEnum};
 #[command(
     name = "GopherSweeper",
     author = "Hidekel D. <hidekeldietrich@gmail.com>",
-    version = "1.0.5",
+    version = "1.0.6",
     about = "Blazing fast, terminal-based minesweeper; but instead of mines, you must avoid Golang devs.",
     long_about = None
 )]
