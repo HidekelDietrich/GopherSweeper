@@ -41,7 +41,7 @@ impl GopherSweeper {
 
         let mut rng = rand::thread_rng();
         let mut random_coords: (usize, usize);
-        let mut planted_gophers: HashSet<(usize, usize)> = HashSet::with_capacity(gophers);
+        let mut planted_gophers = HashSet::with_capacity(gophers);
 
         while planted_gophers.len() < gophers {
             random_coords = (rng.gen_range(0..width), rng.gen_range(0..height));
