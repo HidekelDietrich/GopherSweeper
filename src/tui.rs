@@ -95,7 +95,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                                             KeyCode::Char('r') => {
                                                 drop(field);
                                                 run(GopherSweeper::new(width, height, gophers))?;
-                                                break 'a;
+                                                break 'a
                                             },
     
                                             KeyCode::Esc => break 'a,
