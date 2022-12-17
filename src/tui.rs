@@ -40,8 +40,10 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                 KeyCode::Esc => break,
 
                 KeyCode::Up | KeyCode::Char('w') | KeyCode::Char('k') => {
-                    stdout().execute(cursor::MoveUp(1))?;
-                    if cursor_y > 0 { cursor_y -= 1; }
+                    if cursor_y > 0 {
+                        stdout().execute(cursor::MoveUp(1))?;
+                        cursor_y -= 1;
+                    }
                 },
 
                 KeyCode::Down | KeyCode::Char('s') | KeyCode::Char('j') => {
@@ -52,8 +54,10 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                 },
 
                 KeyCode::Left | KeyCode::Char('a') | KeyCode::Char('h') => {
-                    stdout().execute(cursor::MoveLeft(2))?;
-                    if cursor_x > 0 { cursor_x -= 1; }
+                    if cursor_x > 0 {
+                        stdout().execute(cursor::MoveLeft(2))?;
+                        cursor_x -= 1;
+                    }
                 },
 
                 KeyCode::Right | KeyCode::Char('d') | KeyCode::Char('l') => {
