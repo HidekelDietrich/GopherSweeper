@@ -99,7 +99,6 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                                             },
     
                                             KeyCode::Esc => break 'a,
-    
                                             _ => continue
                                         }
                                     }
