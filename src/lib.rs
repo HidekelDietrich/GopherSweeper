@@ -68,10 +68,11 @@ impl GopherSweeper {
     }
 
     pub fn try_expose_cell(&mut self, x: usize, y: usize) -> CellResult {
-        let cell = &self.field[y][x];
-        if cell.has_mine { return CellResult::HasMine }
+        if self.field[y][x].has_mine { return CellResult::HasMine }
+
         self.expose_recursively(x, y);
         if self.remaining_cells == 0 { return CellResult::Win }
+
         CellResult::Exposed
     }
 
