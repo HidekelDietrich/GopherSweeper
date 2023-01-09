@@ -47,8 +47,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         Difficulty::Python => (field_width * field_height) as f64 * 0.1,
         Difficulty::Rust => (field_width * field_height) as f64 * 0.15,
         Difficulty::Assembly => (field_width * field_height) as f64 * 0.20
-    }.ceil();
+    }.ceil() as usize;
 
-    tui::run(GopherSweeper::new(field_width, field_height, gophers as usize))?;
+    tui::run(GopherSweeper::new(field_width, field_height, gophers))?;
     Ok(())
 }
