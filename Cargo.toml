@@ -17,4 +17,3 @@ rand = "0.8.5"
 [profile.release]
 strip = true
 lto = true
-codegen-units = 1

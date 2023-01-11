@@ -27,8 +27,8 @@ impl GopherSweeper {
     pub fn new(width: usize, height: usize, gophers: usize) -> Self {
         let mut result = GopherSweeper {
             width, height, gophers,
-            field: Vec::with_capacity(height),
-            remaining_cells: width * height - gophers
+            remaining_cells: width * height - gophers,
+            field: Vec::with_capacity(height)
         };
 
         for y in 0..height {
