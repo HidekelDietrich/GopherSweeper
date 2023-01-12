@@ -74,7 +74,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                                 draw_field(&field)?;
                                 stdout().flush()?;
                             },
-    
+
                             CellResult::HasMine => {
                                 stdout()
                                     .queue(SetForegroundColor(GOPHER_COLOR))?
@@ -97,7 +97,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
                                                 run(GopherSweeper::new(width, height, gophers))?;
                                                 break 'a
                                             },
-    
+
                                             KeyCode::Esc => break 'a,
                                             _ => continue
                                         }
@@ -168,7 +168,7 @@ pub fn run(mut field: GopherSweeper) -> Result<(), Box<dyn Error>> {
     stdout()
         .queue(cursor::Show)?
         .queue(LeaveAlternateScreen)?;
-    
+
     stdout().flush()?;
     terminal::disable_raw_mode()?;
 
