@@ -1,6 +1,8 @@
 # GopherSweeper
 Blazing fast, terminal-based minesweeper; but instead of mines, you must avoid Golang devs.
 
+---
+
 ## Instalation:
 `cargo install gophersweeper`
 
